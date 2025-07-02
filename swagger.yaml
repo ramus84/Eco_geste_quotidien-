@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: Mon Éco-Geste Quotidien API
+  description: API pour suivre les gestes écologiques quotidiens
+  version: 1.0.0
+paths:
+  /api/users/register:
+    post:
+      summary: Créer un nouvel utilisateur
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        201:
+          description: Utilisateur créé avec succès
+        400:
+          description: Erreur de validation
+        500:
+          description: Erreur serveur

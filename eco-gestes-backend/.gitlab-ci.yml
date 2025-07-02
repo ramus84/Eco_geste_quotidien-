@@ -1,0 +1,29 @@
+stages:
+  - build
+  - test
+  - deploy
+
+# Étape de build
+build:
+  stage: build
+  script:
+    - npm install
+  only:
+    - main
+
+# Étape des tests
+test:
+  stage: test
+  script:
+    - npm test
+  only:
+    - main
+
+# Étape de déploiement
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to production"
+    - ssh user@server "cd /path/to/your/project && git pull && npm install && npm start"
+  only:
+    - main
