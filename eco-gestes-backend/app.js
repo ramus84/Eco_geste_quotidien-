@@ -15,19 +15,9 @@ const ExcelJS = require('exceljs');
 const Gesture = require('./models/Gesture');
 const User = require('./models/user');
 
-// Import des routes
-const userRoutes = require('./routes/userRoutes');
-const statsRoutes = require('./routes/statsRoutes');
+const app = express(); // <-- DÉCLARATION AVANT TOUT app.use()
 
-// Import du middleware
-const verifyToken = require('./verifyToken');
-
-const app = express();
-
-// Configuration des middlewares
-app.use(express.json());
-
-// Configuration CORS améliorée
+// Configuration CORS améliorée (doit être AVANT toutes les routes et middlewares)
 app.use(cors({
   origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
   credentials: true,
@@ -35,20 +25,56 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
+// Gérer les requêtes pré-vol (OPTIONS) pour toutes les routes
+app.options('*', cors());
+
+// Middleware pour parser le JSON AVANT toutes les routes !
+app.use(express.json());
+
+// Brancher la route messagesRoutes juste après la création de app
+const messagesRoutes = require('./routes/messagesRoutes');
+app.use('/api/messages', messagesRoutes);
+
+// Import des routes
+const userRoutes = require('./routes/userRoutes')
+const statsRoutes = require('./routes/statsRoutes');
+app.use('/api/messages', messagesRoutes);
+
+// Import du middleware
+const verifyToken = require('./verifyToken');
+
+// Configuration des middlewares
 app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
 
-// Configuration de la base de données MongoDB
-const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/ecoGeste';
+// Connexion à MongoDB Atlas
+// ATTENTION : L'erreur 'bad auth : authentication failed' signifie que l'identifiant ou le mot de passe dans l'URI MongoDB est incorrect.
+// Vérifie bien le nom d'utilisateur et le mot de passe dans l'URI ci-dessous !
+const mongoURI = 'mongodb+srv://hansgobel6:0484@cluster0.yu6xufv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(mongoURI)
+.then(() => console.log('✅ Connecté à MongoDB Atlas !'))
+.catch(err => {
+  console.error('❌ Erreur de connexion à MongoDB Atlas :', err.message);
+  process.exit(1);
+});
 
-mongoose.connect(MONGODB_URI, { 
-  useNewUrlParser: true, 
-  useUnifiedTopology: true 
-})
-.then(() => console.log('✅ MongoDB connecté avec succès'))
-.catch(err => console.log('❌ Erreur de connexion MongoDB: ', err));
 
-// Configuration de Multer pour l'upload d'images
+//Appel de la dépendance ejs
+app.set('view engine', 'ejs');
+
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
+
+//Appel pour la configuration le body-parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
+
+
+// Configuration de Multer pour l'upload d'images//Appel pour la configuration le body-parser
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/');
@@ -76,6 +102,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Routes principales
 app.use('/api/users', userRoutes);
 app.use('/api/stats', statsRoutes);
+app.use('/api/messages', messagesRoutes);
 
 // Route de santé pour tester la connexion
 app.get('/api/health', (req, res) => {
@@ -115,14 +142,12 @@ app.get('/api/gestures/:id', async (req, res) => {
 // Route pour créer un nouveau geste
 app.post('/api/gestures', verifyToken, async (req, res) => {
   try {
-    const newGesture = new Gesture({
-      ...req.body,
-      userId: req.user
-    });
-    const savedGesture = await newGesture.save();
-    res.status(201).json(savedGesture);
+    const gestureData = { ...req.body, userId: req.user };
+    const newGesture = new Gesture(gestureData);
+    await newGesture.save();
+    res.status(201).json(newGesture);
   } catch (err) {
-    res.status(500).json({ error: 'Erreur lors de la création du geste' });
+    res.status(500).json({ error: err.message || 'Erreur lors de la création du geste' });
   }
 });
 
@@ -440,6 +465,8 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: 'Route non trouvée' });
 });
 
+// Définition du port du serveur
+const PORT = process.env.PORT || 5000;
 // Démarrage du serveur
 app.listen(PORT, () => {
   console.log(`🚀 Serveur démarré sur le port ${PORT}`);
