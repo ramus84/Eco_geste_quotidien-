@@ -26,10 +26,20 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "chart.js": "^4.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-cron": "^4.1.1",
+    "push.js": "^1.0.12",
     "react": "^19.1.0",
+    "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.3",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "swagger-ui-express": "^5.0.1",
+    "web-vitals": "^2.1.4",
+    "yamljs": "^0.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -54,6 +64,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
 >>>>>>> dc49188f (Initialize project using Create React App)
+=======
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "supertest": "^7.1.1"
+>>>>>>> bfd43eb4 (Initial commit)
   }
 }
