@@ -1,0 +1,303 @@
+/* Styles modernes pour le tableau de bord utilisateur */
+
+.pro-modern {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: #f7fafc;
+  padding: 32px 0 64px 0;
+  min-height: 100vh;
+}
+
+.pro-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #0001, 0 1.5px 4px #0001;
+  padding: 28px 28px 24px 28px;
+  margin-bottom: 32px;
+  transition: box-shadow 0.2s;
+}
+.pro-card:hover {
+  box-shadow: 0 8px 32px #0002, 0 2px 8px #0001;
+}
+
+.dashboard-main-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 12px;
+}
+
+.dashboard-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 32px;
+  position: relative;
+}
+.dashboard-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #0002;
+}
+.dashboard-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.dashboard-profile-infos {
+  flex: 1;
+}
+.dashboard-username {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1976d2;
+}
+.dashboard-city {
+  color: #388e3c;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.dashboard-bio {
+  color: #555;
+  font-size: 1rem;
+  margin-top: 2px;
+}
+.dashboard-edit-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #e3f2fd;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.dashboard-edit-btn:hover {
+  background: #bbdefb;
+}
+
+.pro-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.pro-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+@media (max-width: 900px) {
+  .pro-grid-3, .pro-grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .pro-grid-3, .pro-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-stat-card {
+  text-align: center;
+  padding: 18px 0 10px 0;
+}
+.stat-icon {
+  font-size: 2.1rem;
+  margin-bottom: 6px;
+}
+.stat-label {
+  color: #888;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+.stat-value {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.dashboard-section-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1976d2;
+  margin-bottom: 18px;
+}
+
+.dashboard-empty-message {
+  color: #aaa;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 18px;
+}
+.dashboard-error-message {
+  color: #c62828;
+  background: #ffebee;
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+  margin: 32px auto;
+  max-width: 500px;
+  font-size: 1.15rem;
+}
+.dashboard-loading {
+  color: #1976d2;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 48px auto;
+}
+
+.pro-badge {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.pro-badge:hover {
+  box-shadow: 0 6px 24px #1976d233;
+  transform: translateY(-4px) scale(1.04);
+}
+.badge-locked {
+  filter: grayscale(0.7);
+  opacity: 0.6 !important;
+}
+
+.dashboard-daily-challenge {
+  background: linear-gradient(90deg, #e0f7fa 60%, #fff 100%);
+  color: #00796b;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 4px #0001;
+}
+.pro-highlight {
+  background: linear-gradient(90deg, #e8f5e9 60%, #fff 100%);
+  color: #388e3c;
+}
+
+.dashboard-suggestions-list {
+  margin-top: 8px;
+}
+.pro-suggestion-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #e0f7fa;
+  color: #00796b;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 4px #0001;
+  margin-bottom: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+.pro-suggestion-btn:hover {
+  background: #b2ebf2;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.pro-flex-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.pro-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dashboard-action-btn, .pro-main-btn {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px #43e97b33;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.dashboard-action-btn:hover, .pro-main-btn:hover {
+  background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Modale moderne */
+.pro-modal-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.18);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+}
+.pro-modal-content {
+  background: #fff;
+  padding: 36px 28px 28px 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #0003;
+  min-width: 340px;
+  max-width: 95vw;
+  position: relative;
+}
+.pro-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.pro-modal-close:hover {
+  color: #1976d2;
+}
+
+.pro-badge-interactive {
+  cursor: pointer !important;
+  box-shadow: 0 2px 12px #1976d233;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.pro-badge-interactive:hover {
+  box-shadow: 0 8px 32px #1976d255;
+  transform: translateY(-3px) scale(1.05);
+  background: #e3f2fd;
+}
+
+/* Effet clic animé sur tous les boutons principaux et suggestions */
+.dashboard-action-btn, .pro-main-btn, .pro-suggestion-btn, .pro-badge-interactive {
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.dashboard-action-btn:active, .pro-main-btn:active, .pro-suggestion-btn:active, .pro-badge-interactive:active {
+  transform: scale(0.94);
+  box-shadow: 0 2px 8px #1976d255;
+}
+.dashboard-action-btn:hover, .pro-main-btn:hover, .pro-suggestion-btn:hover, .pro-badge-interactive:hover {
+  box-shadow: 0 8px 32px #1976d255;
+}
+
+/* Animation notification (slide/fade) */
+.animated-notification {
+  animation: notifSlideFade 0.7s cubic-bezier(.4,1.6,.6,1) both;
+}
+@keyframes notifSlideFade {
+  0% { opacity: 0; transform: translateY(-30px) scale(0.95); }
+  60% { opacity: 1; transform: translateY(4px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+} 

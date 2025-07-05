@@ -1,0 +1,1017 @@
+/* ===== VARIABLES CSS POUR LES THÈMES ===== */
+
+:root {
+  /* Thème clair (par défaut) */
+  --primary-color: #28a745;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  
+  /* Couleurs de fond */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  
+  /* Couleurs de texte */
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #6c757d;
+  
+  /* Couleurs de bordure */
+  --border-color: #dee2e6;
+  --border-light: #e9ecef;
+  
+  /* Ombres */
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ===== THÈME SOMBRE ===== */
+.theme-dark {
+  --primary-color: #4ade80;
+  --secondary-color: #9ca3af;
+  --success-color: #4ade80;
+  --danger-color: #f87171;
+  --warning-color: #fbbf24;
+  --info-color: #60a5fa;
+  --light-color: #374151;
+  --dark-color: #f9fafb;
+  
+  /* Couleurs de fond */
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-tertiary: #374151;
+  
+  /* Couleurs de texte */
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  
+  /* Couleurs de bordure */
+  --border-color: #374151;
+  --border-light: #4b5563;
+  
+  /* Ombres */
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== THÈME AUTO (suivant les préférences système) ===== */
+.theme-auto {
+  /* Utilise les variables par défaut qui s'adaptent automatiquement */
+}
+
+/* ===== APPLICATIONS DES VARIABLES ===== */
+
+/* Corps de la page */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+/* Cartes */
+.card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-light);
+  transition: all var(--transition-medium);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+/* Boutons */
+.btn {
+  transition: all var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-light);
+}
+
+/* Navigation */
+.navbar {
+  background-color: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-light);
+}
+
+.navbar-brand {
+  color: var(--primary-color) !important;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: var(--text-secondary) !important;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Formulaires */
+.form-control {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+  background-color: var(--bg-primary);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Tableaux */
+.table {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.table th {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+.table td {
+  border-color: var(--border-color);
+}
+
+/* Modales */
+.modal-content {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.modal-header {
+  border-bottom-color: var(--border-color);
+}
+
+.modal-footer {
+  border-top-color: var(--border-color);
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-medium);
+}
+
+.dropdown-item {
+  color: var(--text-primary);
+  transition: background-color var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* ===== ANIMATIONS ===== */
+
+/* Animation d'apparition des cartes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Animation de rotation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* Animation de rebond */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.bounce {
+  animation: bounce 1s;
+}
+
+/* Animation de glissement */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+/* Animation de zoom */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.6s ease-out;
+}
+
+/* ===== COMPOSANTS SPÉCIFIQUES ===== */
+
+/* Thème toggle */
+.theme-toggle-btn {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Commentaires */
+.comment-system {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.comment-item {
+  transition: background-color var(--transition-fast);
+}
+
+.comment-item:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Export tools */
+.export-tools {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+/* Push notifications */
+.push-notifications {
+  animation: zoomIn 0.6s ease-out;
+}
+
+/* Gesture cards */
+.gesture-card {
+  animation: fadeInUp 0.6s ease-out;
+  transition: all var(--transition-medium);
+}
+
+.gesture-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-heavy);
+}
+
+/* --- Carte de filtres statistiques moderne --- */
+.stats-filter-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.13);
+  padding: 24px 32px 18px 32px;
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  animation: zoomIn 0.6s cubic-bezier(.23,1.01,.32,1);
+}
+/* Champ filtre : icône + champ alignés */
+.stats-filter-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+/* Icône à gauche du champ */
+.stats-filter-icon {
+  font-size: 1.5em;
+  color: #43e97b;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+.stats-filter-field:focus-within .stats-filter-icon {
+  color: #1976d2;
+  transform: scale(1.15) rotate(-8deg);
+}
+/* Groupe label + input aligné verticalement */
+.stats-filter-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+/* Bouton Filtrer moderne */
+.stats-filter-btn {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 32px;
+  box-shadow: 0 2px 8px #43e97b33;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 18px;
+  transition: background 0.22s, transform 0.18s, box-shadow 0.22s;
+  outline: none;
+}
+.stats-filter-btn:hover, .stats-filter-btn:focus {
+  background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+  box-shadow: 0 0 16px 4px #43e97b55, 0 2px 8px #43e97b33;
+  transform: translateY(-2px) scale(1.045);
+}
+.stats-filter-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px #38f9d7aa;
+}
+.stats-filter-btn svg {
+  transition: transform 0.32s cubic-bezier(.23,1.01,.32,1), filter 0.22s;
+}
+.stats-filter-btn:hover svg, .stats-filter-btn:focus svg {
+  transform: rotate(-12deg) scale(1.18);
+  filter: drop-shadow(0 0 6px #38f9d7cc);
+}
+@media (max-width: 900px) {
+  .stats-filter-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 18px 8px 12px 8px;
+  }
+  .stats-filter-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+    justify-content: center;
+  }
+}
+/* --- Fin carte filtres statistiques --- */
+
+/* --- Modernisation des champs du formulaire Statistiques ÉcoGestes --- */
+.form-control, .form-select {
+  background: #fff;
+  border: 1.5px solid #b2dfdb;
+  color: #222;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+  padding: 12px 16px;
+  font-size: 1.08rem;
+  transition: border 0.22s, box-shadow 0.22s, background 0.22s;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.form-control:focus, .form-select:focus {
+  border: 2px solid #43e97b;
+  box-shadow: 0 0 0 3px #43e97b33, 0 2px 8px #43e97b22;
+  background: #f7fafc;
+  outline: none;
+}
+.form-control:hover, .form-select:hover {
+  box-shadow: 0 4px 16px #43e97b22;
+  border-color: #38f9d7;
+}
+/* Labels modernisés */
+.form-label {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1.04em;
+  margin-bottom: 2px;
+  letter-spacing: 0.01em;
+}
+/* Carte principale animée */
+.page-content {
+  animation: zoomIn 0.7s cubic-bezier(.23,1.01,.32,1);
+  box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10);
+  border-radius: 22px;
+  background: #f7fafc;
+}
+@media (max-width: 700px) {
+  .form-control, .form-select {
+    font-size: 1em;
+    padding: 10px 10px;
+  }
+  .page-content {
+    padding: 8px 2px;
+  }
+}
+/* --- Fin modernisation champs Statistiques ÉcoGestes --- */
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .theme-toggle-btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* ===== ACCESSIBILITÉ ===== */
+
+/* Réduire les animations pour les utilisateurs qui le préfèrent */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== UTILITAIRES ===== */
+
+/* Classes utilitaires pour les animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Classes pour les états de chargement */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--primary-color);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+@media print {
+  .print-hide {
+    display: none !important;
+  }
+  body, .main-content, .container, .card, .navbar, .footer {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #000 !important;
+  }
+  button, .btn, .navbar, .footer, .theme-toggle, .export-tools, .push-notifications {
+    display: none !important;
+  }
+  * {
+    box-shadow: none !important;
+  }
+  @page {
+    margin: 1.5cm;
+  }
+} 
+
+/* --- Toast de confirmation filtrage statistiques --- */
+.stats-toast {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  background: #fff;
+  color: #222;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #43e97b33, 0 2px 8px #43e97b22;
+  padding: 14px 28px;
+  font-size: 1.08em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  animation: statsToastIn 0.5s cubic-bezier(.23,1.01,.32,1);
+}
+@keyframes statsToastIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (max-width: 700px) {
+  .stats-toast {
+    right: 8px;
+    bottom: 8px;
+    padding: 10px 12px;
+    font-size: 1em;
+  }
+}
+/* --- Animation de validation du bouton Filtrer --- */
+.stats-filter-btn.validated {
+  background: linear-gradient(90deg, #43e97b 0%, #43c59e 100%);
+  color: #fff;
+  box-shadow: 0 0 16px 4px #43e97b55, 0 2px 8px #43e97b33;
+  transform: scale(1.06);
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+.stats-filter-btn.validated svg {
+  color: #fff !important;
+  filter: drop-shadow(0 0 6px #43e97bcc);
+}
+/* --- Fin toast et validation bouton --- */ 
+
+/* --- Styles pour la calculatrice CO2 moderne --- */
+.carbon-calc-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10);
+  padding: 32px 28px 28px 28px;
+  max-width: 600px;
+  margin: 36px auto 36px auto;
+  animation: zoomIn 0.7s cubic-bezier(.23,1.01,.32,1);
+}
+.carbon-calc-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.carbon-calc-section {
+  margin-bottom: 22px;
+}
+.carbon-calc-section-title {
+  font-size: 1.18em;
+  font-weight: 600;
+  color: #43e97b;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.carbon-calc-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.carbon-calc-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #1976d2;
+  margin-bottom: 0;
+  flex: 1 1 180px;
+  position: relative;
+}
+.carbon-calc-icon {
+  color: #43e97b;
+  margin-bottom: 2px;
+  margin-right: 6px;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+.carbon-calc-input {
+  background: #f7fafc;
+  border: 1.5px solid #b2dfdb;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 1.05em;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  transition: border 0.22s, box-shadow 0.22s, background 0.22s;
+}
+.carbon-calc-input:focus {
+  border: 2px solid #43e97b;
+  box-shadow: 0 0 0 3px #43e97b33, 0 2px 8px #43e97b22;
+  background: #fff;
+  outline: none;
+}
+.carbon-calc-help {
+  color: #888;
+  font-size: 0.97em;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+/* Résultat animé */
+.carbon-calc-result-card {
+  background: linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #43e97b22;
+  padding: 22px 18px 18px 18px;
+  margin-top: 24px;
+  text-align: center;
+  animation: fadeInUp 0.7s;
+}
+.carbon-calc-result-title {
+  font-size: 1.18em;
+  font-weight: 600;
+  color: #1976d2;
+  margin-bottom: 10px;
+}
+.carbon-calc-result-values {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 10px;
+}
+.carbon-calc-result-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carbon-calc-result-label {
+  font-size: 1em;
+  color: #43e97b;
+  margin-bottom: 2px;
+}
+.carbon-calc-result-value {
+  font-size: 1.35em;
+  font-weight: 700;
+  margin-bottom: 2px;
+  transition: color 0.3s;
+}
+.carbon-calc-result-value.emissions {
+  color: #ff7043;
+}
+.carbon-calc-result-value.economies {
+  color: #43e97b;
+}
+/* Barre d'économies */
+.carbon-calc-bar-container {
+  margin-top: 10px;
+}
+.carbon-calc-bar-bg {
+  width: 100%;
+  height: 16px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.carbon-calc-bar-eco {
+  height: 100%;
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  border-radius: 8px;
+  transition: width 0.7s cubic-bezier(.23,1.01,.32,1);
+}
+.carbon-calc-bar-text {
+  font-size: 0.98em;
+  color: #1976d2;
+  margin-top: 2px;
+}
+@media (max-width: 700px) {
+  .carbon-calc-card {
+    padding: 10px 2px 10px 2px;
+    max-width: 99vw;
+  }
+  .carbon-calc-fields {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .carbon-calc-result-values {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+/* --- Fin styles calculatrice CO2 --- */ 
+
+/* --- Boutons d'action de la calculatrice CO2 --- */
+.carbon-calc-action-btn {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  font-size: 1.05em;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 24px;
+  box-shadow: 0 2px 8px #43e97b22;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.22s, transform 0.18s, box-shadow 0.22s;
+  outline: none;
+}
+.carbon-calc-action-btn:hover, .carbon-calc-action-btn:focus {
+  background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+  box-shadow: 0 0 12px 2px #43e97b55, 0 2px 8px #43e97b22;
+  transform: translateY(-2px) scale(1.045);
+}
+.carbon-calc-action-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px #38f9d7aa;
+}
+.carbon-calc-action-btn svg {
+  font-size: 1.1em;
+}
+/* --- Conseils personnalisés --- */
+.carbon-calc-advice {
+  margin-top: 24px;
+  background: #f7fafc;
+  border-radius: 14px;
+  box-shadow: 0 1px 6px #43e97b11;
+  padding: 16px 12px 10px 12px;
+}
+.carbon-calc-advice-title {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1.08em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.carbon-calc-advice ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #333;
+  font-size: 1em;
+}
+.carbon-calc-advice li {
+  margin-bottom: 4px;
+}
+@media (max-width: 700px) {
+  .carbon-calc-action-btn {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+  .carbon-calc-advice {
+    padding: 10px 4px 8px 4px;
+  }
+}
+/* --- Fin boutons et conseils calculatrice CO2 --- */ 
+
+/* --- Message de confirmation sauvegarde calculatrice CO2 --- */
+.carbon-calc-save-msg {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px #43e97b33;
+  padding: 12px 28px;
+  font-size: 1.08em;
+  text-align: center;
+  margin: 18px auto 0 auto;
+  max-width: 340px;
+  animation: fadeInUp 0.5s;
+}
+@media (max-width: 700px) {
+  .carbon-calc-save-msg {
+    padding: 8px 8px;
+    font-size: 1em;
+    max-width: 98vw;
+  }
+}
+/* --- Fin message confirmation calculatrice CO2 --- */ 
+
+/* --- Styles pour les pages d'authentification (Register & Login) --- */
+.auth-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10);
+  padding: 36px 28px 28px 28px;
+  max-width: 400px;
+  margin: 48px auto 36px auto;
+  animation: zoomIn 0.7s cubic-bezier(.23,1.01,.32,1);
+}
+.auth-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.auth-label {
+  color: #1976d2;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 0;
+}
+.auth-icon {
+  color: #43e97b;
+  margin-bottom: 2px;
+  margin-right: 6px;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+.auth-input {
+  background: #f7fafc;
+  border: 1.5px solid #b2dfdb;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 1.05em;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  transition: border 0.22s, box-shadow 0.22s, background 0.22s;
+}
+.auth-input:focus {
+  border: 2px solid #43e97b;
+  box-shadow: 0 0 0 3px #43e97b33, 0 2px 8px #43e97b22;
+  background: #fff;
+  outline: none;
+}
+.auth-btn {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 32px;
+  box-shadow: 0 2px 8px #43e97b33;
+  cursor: pointer;
+  transition: background 0.22s, transform 0.18s, box-shadow 0.22s;
+  outline: none;
+  margin-top: 8px;
+}
+.auth-btn:hover, .auth-btn:focus {
+  background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+  box-shadow: 0 0 16px 4px #43e97b55, 0 2px 8px #43e97b33;
+  transform: translateY(-2px) scale(1.045);
+}
+.auth-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px #38f9d7aa;
+}
+.auth-error {
+  background: #ff7043;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.5s;
+}
+.auth-success {
+  background: #43e97b;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.5s;
+}
+.auth-link {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 1em;
+}
+.auth-link a {
+  color: #1976d2;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.auth-link a:hover {
+  color: #43e97b;
+}
+@media (max-width: 500px) {
+  .auth-card {
+    padding: 10px 2px 10px 2px;
+    max-width: 99vw;
+  }
+}
+/* --- Fin styles authentification --- */ 
+
+/* --- Styles pour la page d'historique des calculs CO2 --- */
+.carbon-history-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10);
+  padding: 32px 18px 24px 18px;
+  max-width: 700px;
+  margin: 36px auto 36px auto;
+  animation: zoomIn 0.7s cubic-bezier(.23,1.01,.32,1);
+}
+.carbon-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+}
+.carbon-history-item {
+  background: linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #43e97b22;
+  padding: 18px 16px 12px 16px;
+  animation: fadeInUp 0.7s;
+}
+.carbon-history-date {
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1.08em;
+  margin-bottom: 6px;
+}
+.carbon-history-row {
+  color: #333;
+  font-size: 1em;
+  margin-bottom: 2px;
+}
+.carbon-history-row ul {
+  margin: 0;
+  padding-left: 18px;
+}
+@media (max-width: 700px) {
+  .carbon-history-card {
+    padding: 10px 2px 10px 2px;
+    max-width: 99vw;
+  }
+  .carbon-history-item {
+    padding: 10px 4px 8px 4px;
+  }
+}
+/* --- Fin styles historique CO2 --- */ 

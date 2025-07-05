@@ -1,0 +1,174 @@
+/* ===== COMPOSANT DE TEST DE CONNEXION ===== */
+
+.connection-test {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.connection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.connection-header h4 {
+  margin: 0;
+  color: #2d8a8a;
+  font-weight: 600;
+}
+
+.retry-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #43c59e 0%, #2d8a8a 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 197, 158, 0.3);
+}
+
+.retry-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+}
+
+.status-icon.connected {
+  color: #28a745;
+  animation: pulse 2s infinite;
+}
+
+.status-icon.failed {
+  color: #dc3545;
+}
+
+.status-icon.testing {
+  color: #ffc107;
+  animation: spin 1s linear infinite;
+}
+
+.status-text {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #f5c6cb;
+}
+
+.last-test {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.connection-info {
+  background: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.connection-info h5 {
+  margin: 0 0 0.5rem 0;
+  color: #1976d2;
+  font-size: 1rem;
+}
+
+.connection-info ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.connection-info li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.troubleshooting {
+  background: #fff3cd;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ffeaa7;
+}
+
+.troubleshooting h5 {
+  margin: 0 0 0.5rem 0;
+  color: #856404;
+  font-size: 1rem;
+}
+
+.troubleshooting ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.troubleshooting li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: #856404;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .connection-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .retry-button {
+    justify-content: center;
+  }
+  
+  .connection-status {
+    flex-direction: column;
+    text-align: center;
+  }
+} 
